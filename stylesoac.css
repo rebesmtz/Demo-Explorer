@@ -72,14 +72,36 @@ button:hover {
   margin-bottom: 20px;
 }
 
-#toggle-isochrone,
-#toggle-output-areas {
-  margin-bottom: 10px;
-}
-
 .summary-stats {
   margin-top: 20px;
 }
+
+/* New styles for summary stats */
+.summary-stats {
+  font-size: 12px; /* Base font size for the entire section */
+}
+
+.summary-stats h3 {
+  font-size: 14px; /* Slightly larger font for headings */
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.summary-stats p {
+  margin: 3px 0; /* Reduced vertical margins */
+}
+
+.summary-stats ul {
+  margin: 5px 0;
+  padding-left: 20px; /* Reduced padding for lists */
+}
+
+.summary-stats li {
+  margin: 2px 0; /* Reduced vertical margins for list items */
+}
+
+
+
 
 #map {
   flex: 1;
@@ -317,4 +339,91 @@ button:hover {
 
 #search-button {
   margin-top: 10px;
+}
+
+
+
+/* Map layers styles */
+
+.map-layers-container {
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.map-layers-container h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggle-label {
+  margin-left: 8px;
+  color: #333;
+  font-size: 12px;
+}
+
+input:not(:checked) + .slider + .toggle-label {
+  color: #999;
 }

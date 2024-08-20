@@ -23,8 +23,7 @@ const supergroupColors = {
 loadCensusFeatures();
 loadOutputAreaCentroids();
 
-document.getElementById('toggle-isochrone').addEventListener('click', toggleIsochrone);
-document.getElementById('toggle-output-areas').addEventListener('click', toggleOutputAreas);
+
 document.getElementById('isochrone-type').addEventListener('change', updateIsochroneUnit);
 
 function updateIsochroneUnit() {
@@ -33,21 +32,27 @@ function updateIsochroneUnit() {
     isochroneUnit.textContent = isochroneType === 'time' ? 'minutes' : 'miles';
 }
 
+// Replace the existing toggle functions with these:
 function toggleIsochrone() {
-  isIsochroneVisible = !isIsochroneVisible;
+  isIsochroneVisible = document.getElementById('isochrone-toggle').checked;
   if (map.getLayer('isochrone')) {
       map.setLayoutProperty('isochrone', 'visibility', isIsochroneVisible ? 'visible' : 'none');
   }
-  document.getElementById('toggle-isochrone').textContent = isIsochroneVisible ? 'Hide Isochrone' : 'Show Isochrone';
 }
 
 function toggleOutputAreas() {
-  areOutputAreasVisible = !areOutputAreasVisible;
+  areOutputAreasVisible = document.getElementById('output-areas-toggle').checked;
   if (map.getLayer('output-areas')) {
       map.setLayoutProperty('output-areas', 'visibility', areOutputAreasVisible ? 'visible' : 'none');
   }
-  document.getElementById('toggle-output-areas').textContent = areOutputAreasVisible ? 'Hide Output Areas' : 'Show Output Areas';
 }
+
+// Add these event listeners after the map is initialized
+document.getElementById('isochrone-toggle').addEventListener('change', toggleIsochrone);
+document.getElementById('output-areas-toggle').addEventListener('change', toggleOutputAreas);
+
+
+
 
 document.getElementById('update-map').addEventListener('click', () => {
     const apiKey = document.getElementById('mapbox-api-key').value;

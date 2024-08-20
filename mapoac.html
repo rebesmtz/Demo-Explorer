@@ -13,6 +13,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-treemap@2.3.0"></script>
 
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"> 
+
   
 </head>
 <body>
@@ -47,9 +49,26 @@
     </div>
   
       <div class="toggle-controls">
-        <button id="toggle-isochrone">Toggle Isochrone</button>
-        <button id="toggle-output-areas">Toggle Output Areas</button>
+
       </div>
+
+      <div class="map-layers-container">
+        <h3>Map Layers</h3>
+        <div class="toggle-container">
+            <label class="toggle-switch">
+                <input type="checkbox" id="isochrone-toggle" checked>
+                <span class="slider round"></span>
+            </label>
+            <span class="toggle-label">Isochrone</span>
+        </div>
+        <div class="toggle-container">
+            <label class="toggle-switch">
+                <input type="checkbox" id="output-areas-toggle" checked>
+                <span class="slider round"></span>
+            </label>
+            <span class="toggle-label">Output Areas</span>
+        </div>
+    </div>
 
       <div id="treemap-container"></div>
   
